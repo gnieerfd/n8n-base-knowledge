@@ -110,10 +110,10 @@ Spreadsheet digunakan sebagai basis pengetahuan dengan struktur:
 
 Sheet kedua untuk mencatat log interaksi:
 
-| timestamp | pertanyaan | jawaban | status |
-|-----------|------------|---------|---------|
-| 2024-12-24 10:00 | Apa itu n8n? | n8n adalah... | found |
-| 2024-12-24 10:05 | Test? | Tidak ditemukan | not_found |
+| timestamp | pertanyaan | jawaban |
+|-----------|------------|---------|
+| 2024-12-24 10:00 | Apa itu n8n? | n8n adalah... | 
+| 2024-12-24 10:05 | Test? | Tidak ditemukan | 
 
 ![Log Interaksi Sheet](./images/spreadsheet-log.jpeg)
 
@@ -192,7 +192,6 @@ Jika jawaban ditemukan, sistem akan mengembalikan jawaban dari Google Sheets.
 {
   "pertanyaan": "{{ $('Set Input').item.json.pertanyaan }}",
   "jawaban": "{{ $json.jawaban }}",
-  "status": "found"
 }
 ```
 
@@ -205,7 +204,6 @@ Jika jawaban tidak ditemukan, sistem akan mengembalikan pesan:
 {
   "pertanyaan": "{{ $('Set Input').item.json.pertanyaan }}",
   "jawaban": "Maaf, informasi tidak ditemukan dalam basis pengetahuan.",
-  "status": "not_found"
 }
 ```
 
@@ -249,7 +247,6 @@ Node ini mencatat setiap interaksi ke Google Sheets untuk keperluan analisis di 
 {
   "pertanyaan": "Apa itu BigAssistant?",
   "jawaban": "BigAssistant adalah sistem otomasi sederhana...",
-  "status": "found"
 }
 ```
 
@@ -269,7 +266,6 @@ Node ini mencatat setiap interaksi ke Google Sheets untuk keperluan analisis di 
 {
   "pertanyaan": "Siapa presiden Indonesia 2030?",
   "jawaban": "Maaf, informasi tidak ditemukan dalam basis pengetahuan.",
-  "status": "not_found"
 }
 ```
 ---
