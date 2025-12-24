@@ -66,14 +66,6 @@ Berikut adalah setup Docker untuk menjalankan n8n secara lokal:
 ![Docker Setup](./images/docker-setup.jpeg)
 *Screenshot: Docker Compose menjalankan n8n*
 
-**Struktur file:**
-```
-project/
-├── docker-compose.yml
-├── .env
-└── n8n-data/
-```
-
 ---
 
 ## Konfigurasi Google Sheets API
