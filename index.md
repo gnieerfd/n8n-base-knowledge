@@ -6,17 +6,6 @@ description: Dokumentasi workflow automation sederhana menggunakan n8n dan Googl
 
 # Implementasi n8n Sederhana Menggunakan Google Spreadsheet
 
-## Pendahuluan
-
-Saya mempelajari dan mengimplementasikan sebuah workflow otomatis menggunakan **n8n**. Project ini bersifat **non-komersial**, sehingga seluruh tools yang digunakan adalah **gratis dan open-source**.
-
-Tujuan utama saya dalam project ini adalah:
-- Memahami konsep dasar automation workflow
-- Mengimplementasikan use case sederhana namun nyata
-- Mendokumentasikan proses secara runtut dan dapat dipahami
-
----
-
 ## Apa itu n8n?
 
 **n8n** adalah tools *workflow automation* berbasis *node* yang memungkinkan kita menghubungkan berbagai layanan tanpa harus menulis kode kompleks.
@@ -114,7 +103,7 @@ Spreadsheet digunakan sebagai basis pengetahuan dengan struktur:
 | Apa itu BigAssistant? | BigAssistant adalah sistem otomasi sederhana... |
 | Bagaimana cara menggunakan n8n? | n8n dapat digunakan dengan membuat workflow... |
 
-![Knowledge Base Sheet](./images/knowledge-base.jpeg)
+![Knowledge Base Sheet](./images/spreadsheet-knowledge-base.jpeg)
 *Screenshot: Google Sheets - Knowledge Base*
 
 ### Sheet 2: Log Interaksi
