@@ -74,7 +74,7 @@ Komponen utama:
 
 Berikut adalah setup Docker untuk menjalankan n8n secara lokal:
 
-![Docker Setup](./images/docker-setup.png)
+![Docker Setup](./images/docker-setup.jpeg)
 *Screenshot: Docker Compose menjalankan n8n*
 
 **Struktur file:**
@@ -91,7 +91,7 @@ project/
 
 Sebelum mengimplementasikan workflow, kita perlu mengkonfigurasi Google Sheets API.
 
-![Google API Console](./images/google-api-config.png)
+![Google API Console](./images/google-api-config.jpeg)
 *Screenshot: Konfigurasi Google Sheets API di Google Cloud Console*
 
 **Langkah-langkah:**
