@@ -101,7 +101,7 @@ Spreadsheet digunakan sebagai basis pengetahuan dengan struktur:
 | pertanyaan | jawaban |
 |------------|---------|
 | Apa itu BigAssistant? | BigAssistant adalah sistem otomasi sederhana... |
-| Bagaimana cara menggunakan n8n? | n8n dapat digunakan dengan membuat workflow... |
+| Cara instalasi | Gunakan Docker Compose untuk instalasi cepat. |
 
 ![Knowledge Base Sheet](./images/spreadsheet-knowledge-base.jpeg)
 *Screenshot: Google Sheets - Knowledge Base*
@@ -112,7 +112,7 @@ Sheet kedua untuk mencatat log interaksi:
 
 | timestamp | pertanyaan | jawaban |
 |-----------|------------|---------|
-| 2024-12-24 10:00 | Apa itu n8n? | n8n adalah... | 
+| 2024-12-24 10:00 | Apa itu BigAssistant? | BigAssistant adalah solusi AI Assistant untuk membantu akses informasi internal secara cepat dan terstruktur. | 
 | 2024-12-24 10:05 | Test? | Tidak ditemukan | 
 
 ![Log Interaksi Sheet](./images/spreadsheet-log.jpeg)
@@ -218,8 +218,8 @@ Node ini mencatat setiap interaksi ke Google Sheets untuk keperluan analisis di 
 
 **Konfigurasi:**
 - **Operation**: Append
-- **Document ID**: [ID Google Sheets Anda]
-- **Sheet Name**: log_interaksi
+- **Document ID**: 1AINfkaNTok5ACkYcWEsL8IdlVvVuQMzaKB3AWlhIv-8
+- **Sheet Name**: Sheet1
 - **Data to Send**: 
   - timestamp: `{{ $now.toISO() }}`
   - pertanyaan: `{{ $json.pertanyaan }}`
@@ -288,7 +288,7 @@ Hal ini membuktikan bahwa n8n dapat digunakan untuk membangun sistem asisten sed
 ## Repository & Kontak
 
 - **GitHub Repository**: https://github.com/gnieerfd/n8n-base-knowledge
-- **Author**: Gania Rafidah Huwada
+- **Author**: Gania Rafidah Huwaida
 
 ---
 
