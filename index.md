@@ -54,8 +54,7 @@ Komponen utama:
 - **Google Sheets** → Basis pengetahuan & log interaksi
 - **Docker Compose** → Menjalankan n8n secara lokal
 
-### Diagram Arsitektur
-
+### workflow n8n 
 ```
 ┌─────────────┐     ┌──────────────┐     ┌─────────────────┐
 │   Manual    │────▶│  n8n Workflow│────▶│ Google Sheets   │
@@ -115,7 +114,7 @@ Spreadsheet digunakan sebagai basis pengetahuan dengan struktur:
 | Apa itu BigAssistant? | BigAssistant adalah sistem otomasi sederhana... |
 | Bagaimana cara menggunakan n8n? | n8n dapat digunakan dengan membuat workflow... |
 
-![Knowledge Base Sheet](./images/spreadsheet-knowledge-base.png)
+![Knowledge Base Sheet](./images/knowledge-base.jpeg)
 *Screenshot: Google Sheets - Knowledge Base*
 
 ### Sheet 2: Log Interaksi
@@ -127,8 +126,7 @@ Sheet kedua untuk mencatat log interaksi:
 | 2024-12-24 10:00 | Apa itu n8n? | n8n adalah... | found |
 | 2024-12-24 10:05 | Test? | Tidak ditemukan | not_found |
 
-![Log Interaksi Sheet](./images/spreadsheet-log.png)
-*Screenshot: Google Sheets - Log Interaksi*
+![Log Interaksi Sheet](./images/spreadsheet-log.jpeg)
 
 ---
 
@@ -136,15 +134,13 @@ Sheet kedua untuk mencatat log interaksi:
 
 Workflow dibangun menggunakan beberapa node utama:
 
-![n8n Workflow Overview](./images/n8n-workflow-full.png)
+![n8n Workflow Overview](./images/n8n-workflow-full.jpeg)
 *Screenshot: Tampilan lengkap workflow n8n*
 
 ### 1. Manual Trigger
 
 Digunakan untuk melakukan simulasi dan pengujian workflow secara manual.
 
-![Manual Trigger Node](./images/node-manual-trigger.png)
-*Screenshot: Konfigurasi Manual Trigger*
 
 ---
 
@@ -159,8 +155,7 @@ Contoh data:
 }
 ```
 
-![Set Input Node](./images/node-set-input.png)
-*Screenshot: Konfigurasi Set Node untuk input pertanyaan*
+![Set Input Node](./images/node-set-input.jpeg)
 
 ---
 
@@ -177,7 +172,7 @@ Jika pertanyaan ditemukan, node akan mengembalikan field jawaban.
 - **Lookup Column**: pertanyaan
 - **Lookup Value**: `{{ $json.pertanyaan }}`
 
-![Google Sheets Get Rows](./images/node-google-sheets-get.png)
+![Google Sheets Get Rows](./images/node-google-sheets-get.jpeg)
 *Screenshot: Konfigurasi Google Sheets - Get Row(s)*
 
 ---
@@ -197,12 +192,10 @@ Logika ini tidak menggunakan perhitungan jumlah data, melainkan langsung memvali
 {{ $json.jawaban !== undefined && $json.jawaban !== null && $json.jawaban !== '' }}
 ```
 
-![IF Node Configuration](./images/node-if-condition.png)
+![IF Node Configuration](./images/node-if-condition.jpeg)
 *Screenshot: Konfigurasi IF Node untuk pengecekan jawaban*
 
 ---
-
-### 5. Set Node – Jawaban dari Knowledge Base
 
 Jika jawaban ditemukan, sistem akan mengembalikan jawaban dari Google Sheets.
 
@@ -214,12 +207,8 @@ Jika jawaban ditemukan, sistem akan mengembalikan jawaban dari Google Sheets.
 }
 ```
 
-![Set Node Found](./images/node-set-found.png)
-*Screenshot: Set Node untuk jawaban yang ditemukan*
 
----
-
-### 6. Set Node – Jawaban Tidak Ditemukan
+### 5. Set Node – Jawaban Tidak Ditemukan
 
 Jika jawaban tidak ditemukan, sistem akan mengembalikan pesan:
 
@@ -231,7 +220,7 @@ Jika jawaban tidak ditemukan, sistem akan mengembalikan pesan:
 }
 ```
 
-![Set Node Not Found](./images/node-set-not-found.png)
+![Set Node Not Found](./images/node-set-not-found.jpeg)
 *Screenshot: Set Node untuk jawaban tidak ditemukan*
 
 ---
@@ -250,7 +239,7 @@ Node ini mencatat setiap interaksi ke Google Sheets untuk keperluan analisis di 
   - jawaban: `{{ $json.jawaban }}`
   - status: `{{ $json.status }}`
 
-![Google Sheets Log](./images/node-google-sheets-log.png)
+![Google Sheets Log](./images/node-google-sheets-log.jpeg)
 *Screenshot: Konfigurasi Google Sheets untuk logging*
 
 ---
@@ -275,9 +264,6 @@ Node ini mencatat setiap interaksi ke Google Sheets untuk keperluan analisis di 
 }
 ```
 
-![Test Found](./images/test-result-found.png)
-*Screenshot: Hasil test untuk pertanyaan yang ditemukan*
-
 ---
 
 ### Test Case 2: Pertanyaan Tidak Ditemukan
@@ -297,10 +283,6 @@ Node ini mencatat setiap interaksi ke Google Sheets untuk keperluan analisis di 
   "status": "not_found"
 }
 ```
-
-![Test Not Found](./images/test-result-not-found.png)
-*Screenshot: Hasil test untuk pertanyaan tidak ditemukan*
-
 ---
 
 ## Kesimpulan
@@ -316,38 +298,12 @@ Hal ini membuktikan bahwa n8n dapat digunakan untuk membangun sistem asisten sed
 
 ---
 
-## Struktur Folder Screenshot
-
-Untuk menampilkan screenshot dengan benar, buat struktur folder berikut di repository GitHub Anda:
-
-```
-repository/
-├── index.md (file ini)
-└── images/
-    ├── docker-setup.png
-    ├── google-api-config.png
-    ├── spreadsheet-knowledge-base.png
-    ├── spreadsheet-log.png
-    ├── n8n-workflow-full.png
-    ├── node-manual-trigger.png
-    ├── node-set-input.png
-    ├── node-google-sheets-get.png
-    ├── node-if-condition.png
-    ├── node-set-found.png
-    ├── node-set-not-found.png
-    ├── node-google-sheets-log.png
-    ├── test-result-found.png
-    └── test-result-not-found.png
-```
-
 ---
 
 ## Repository & Kontak
 
-- **GitHub Repository**: [Link ke repository Anda]
-- **Author**: [Nama Anda]
-- **License**: MIT
+- **GitHub Repository**: https://github.com/gnieerfd/n8n-base-knowledge
+- **Author**: Gania Rafidah Huwada
 
 ---
 
-*Dokumentasi ini dibuat sebagai bagian dari pembelajaran automation workflow menggunakan n8n dan Google Sheets.*
